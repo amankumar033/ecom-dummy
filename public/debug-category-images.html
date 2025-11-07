@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Category Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug-item { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .error { background: #f8d7da; border-color: #f5c6cb; }
+        .loading { background: #fff3cd; border-color: #ffeaa7; }
+        img { max-width: 100px; max-height: 100px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Debug Category Images</h1>
+    <div id="debugContainer"></div>
+
+    <script>
+        const categoryIds = ['CTR000001', 'CTR000002', 'CTR000003'];
+        
+        async function testCategoryImage(categoryId) {
+            const container = document.getElementById('debugContainer');
+            const debugItem = document.createElement('div');
+            debugItem.className = 'debug-item loading';
+            debugItem.innerHTML = `<h3>Testing ${categoryId}</h3><p>Loading...</p>`;
+            container.appendChild(debugItem);
+
+            try {
+                console.log(`🔍 Testing ${categoryId}...`);
+                
+                const response = await fetch(`/api/categories/image/${categoryId}?t=${Date.now()}`);
+                console.log(`📊 Response status: ${response.status}`);
+                console.log(`📊 Response headers:`, response.headers);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log(`📊 Response data:`, data);
+                
+                if (data.success && data.imageUrl) {
+                    debugItem.className = 'debug-item success';
+                    debugItem.innerHTML = `
+                        <h3>✅ ${categoryId} - SUCCESS</h3>
+                        <p><strong>Category:</strong> ${data.categoryName || 'Unknown'}</p>
+                        <p><strong>Image Size:</strong> ${data.imageSize || 'Unknown'} bytes</p>
+                        <p><strong>Base64 Length:</strong> ${data.base64Length || 'Unknown'}</p>
+                        <p><strong>Image URL:</strong> ${data.imageUrl.substring(0, 100)}...</p>
+                        <img src="${data.imageUrl}" alt="${categoryId}" onload="console.log('✅ Image loaded successfully')" onerror="console.log('❌ Image failed to load')">
+                    `;
+                    console.log(`✅ Successfully loaded image for ${categoryId}`);
+                } else {
+                    throw new Error('No image URL in response');
+                }
+                
+            } catch (error) {
+                console.error(`❌ Error testing ${categoryId}:`, error);
+                debugItem.className = 'debug-item error';
+                debugItem.innerHTML = `
+                    <h3>❌ ${categoryId} - ERROR</h3>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p><strong>Stack:</strong> ${error.stack}</p>
+                `;
+            }
+        }
+
+        // Test each category
+        categoryIds.forEach(testCategoryImage);
+    </script>
+</body>
+</html>
+

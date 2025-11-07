@@ -1,0 +1,682 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure sticky positioning works properly */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+
+/* Force sticky positioning for navbar */
+.sticky-navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Ensure sticky positioning works for professional navbar */
+.professional-navbar-sticky {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999 !important;
+  transform: translateZ(0);
+  will-change: transform;
+  background-color: #1e293b !important;
+}
+
+/* Suppress fdprocessedid warnings in development */
+[fdprocessedid] {
+  /* This suppresses the React development warning about fdprocessedid */
+}
+
+/* Hide scrollbars for horizontal scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* Custom scrollbar styles for better UX */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+:root {
+  --global-palette1: #ff7200;
+  --global-palette2: #000000;
+  --global-palette3: #000000;
+  --global-palette4: #000000;
+  --global-palette5: #666666;
+  --global-palette6: #777777;
+  --global-palette7: #f5f5f5;
+  --global-palette8: #f7f7f7;
+  --global-palette9: #ffffff;
+  --global-palette10:#F29F05;
+}
+
+/* Rich Text Content Styles */
+.rich-text-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.rich-text-content h1,
+.rich-text-content h2,
+.rich-text-content h3,
+.rich-text-content h4,
+.rich-text-content h5,
+.rich-text-content h6 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #1a1a1a;
+}
+
+.rich-text-content h1 { font-size: 1.5em; }
+.rich-text-content h2 { font-size: 1.3em; }
+.rich-text-content h3 { font-size: 1.2em; }
+.rich-text-content h4 { font-size: 1.1em; }
+.rich-text-content h5 { font-size: 1em; }
+.rich-text-content h6 { font-size: 0.9em; }
+
+.rich-text-content p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.rich-text-content ul,
+.rich-text-content ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.rich-text-content li {
+  margin-bottom: 0.5em;
+}
+
+.rich-text-content strong,
+.rich-text-content b {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.rich-text-content em,
+.rich-text-content i {
+  font-style: italic;
+}
+
+.rich-text-content u {
+  text-decoration: underline;
+}
+
+.rich-text-content blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.rich-text-content code {
+  background-color: #f3f4f6;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.rich-text-content pre {
+  background-color: #f3f4f6;
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile form compatibility fixes */
+/* CRITICAL: Force mobile headers to be visible at all costs */
+.lg\\:hidden {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+}
+
+/* Ensure Botpress doesn't interfere with header */
+#bp-widget {
+  z-index: 99999 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* Botpress webchat container */
+.bp-widget-web {
+  z-index: 99999 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* Botpress iframe */
+.bp-widget-web iframe {
+  z-index: 99999 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* Botpress button and widget positioning */
+.bp-widget-web .bp-widget-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* Botpress widget container */
+.bp-widget-web .bp-widget-widget {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* Mobile header protection - more specific */
+.lg\\:hidden {
+  display: flex !important;
+}
+
+/* Force mobile header visibility */
+@media (max-width: 1024px) {
+  .lg\\:hidden {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Ensure mobile header is above everything */
+  .lg\\:hidden.bg-white {
+    z-index: 10001 !important;
+    position: relative !important;
+  }
+}
+
+/* Mobile header class for additional protection */
+.mobile-header {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 10001 !important;
+  position: relative !important;
+}
+
+/* Force mobile headers to always be visible */
+@media (max-width: 1024px) {
+  /* Main mobile header with logo and buttons */
+  .lg\\:hidden.bg-white.shadow-md {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10002 !important;
+    position: relative !important;
+    background-color: white !important;
+  }
+  
+  /* Mobile search bar */
+  .lg\\:hidden.bg-gray-50 {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10001 !important;
+    position: relative !important;
+    background-color: #f9fafb !important;
+  }
+}
+
+/* Specific mobile header classes for maximum visibility */
+.mobile-main-header {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 10003 !important;
+  position: relative !important;
+  background-color: white !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.mobile-search-header {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 10002 !important;
+  position: relative !important;
+  background-color: #f9fafb !important;
+}
+
+/* ULTIMATE MOBILE HEADER FIX - Override everything */
+@media (max-width: 1024px) {
+  /* Force ALL mobile elements to show */
+  .lg\\:hidden {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 9999 !important;
+  }
+  
+  /* Specific mobile header elements */
+  .lg\\:hidden.bg-white {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 9999 !important;
+    background-color: white !important;
+    min-height: 60px !important;
+  }
+  
+  .lg\\:hidden.bg-gray-50 {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 99998 !important;
+    background-color: #f9fafb !important;
+    min-height: 50px !important;
+  }
+  
+  /* Hide desktop elements on mobile */
+  .lg\\:block {
+    display: none !important;
+  }
+  
+  .hidden.lg\\:block {
+    display: none !important;
+  }
+  
+
+}
+
+/* CRITICAL: Force mobile headers to be visible ONLY on mobile */
+@media (max-width: 1024px) {
+  .block.lg\\:hidden {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+  
+  /* Force mobile headers to show on mobile */
+  .block {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+  
+  /* Force ALL mobile header elements to show */
+  .lg\\:hidden {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+  
+  /* Specific mobile header classes */
+  .mobile-main-header {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+  
+  .mobile-search-header {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 99998 !important;
+  }
+  
+  /* Add padding for fixed mobile headers ONLY on mobile */
+  
+}
+
+/* Hide mobile headers on desktop - STRONGER RULES */
+@media (min-width: 1025px) {
+  .block.lg\\:hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -1 !important;
+  }
+  
+  .lg\\:hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -1 !important;
+  }
+  
+  /* Hide ALL mobile header elements on desktop */
+  .mobile-main-header {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -1 !important;
+  }
+  
+  .mobile-search-header {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -1 !important;
+  }
+  
+  /* Hide any element with mobile header classes on desktop */
+  [class*="mobile-header"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -1 !important;
+  }
+  
+  /* Remove mobile content padding on desktop */
+  .mobile-content-padding {
+    padding-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Prevent zoom on iOS for form inputs */
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  select,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Ensure dropdowns don't overflow */
+  select {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Date picker mobile optimization */
+  input[type="date"] {
+    min-height: 44px; /* iOS minimum touch target */
+    padding: 12px 16px;
+  }
+  
+  /* Select dropdown mobile optimization */
+  select {
+    min-height: 44px; /* iOS minimum touch target */
+    padding: 12px 16px;
+  }
+}
+
+.rich-text-content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.rich-text-content a:hover {
+  color: #1d4ed8;
+}
+
+.rich-text-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  margin: 1em 0;
+}
+
+.rich-text-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+.rich-text-content th,
+.rich-text-content td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.rich-text-content th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+.pt-\[80px\] {
+  padding-top: 0 !important;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+/* Optional: Add this if you want the price tag to animate too */
+.wiper-price-tag {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+.animate-slideUp + .wiper-price-tag {
+  opacity: 1;
+}
+
+        @keyframes diagonalFlash {
+          0% {
+            transform: translate(-100%, -100%);
+          }
+          100% {
+            transform: translate(100%, 100%);
+          }
+        }
+         .flash-active {
+          position: relative;
+          overflow: hidden;
+        }
+        .flash-active::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255, 255, 255, 0.7);
+          animation: flash 1s ease-out;
+        }
+        @keyframes flash {
+          0% { opacity: 0; }
+          50% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+        .flash-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            135deg,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0.8) 50%,
+            rgba(255,255,255,0) 100%
+          );
+          animation: diagonalFlash 0.5s linear;
+          z-index: 10;
+        }
+      
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Toast Animation */
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+/* Fast Toast Animation */
+@keyframes slide-in-fast {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-fast {
+  animation: slide-in-fast 0.08s ease-out forwards;
+}
+
+/* Checkout Processing Animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f5f5f5;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 ;
+}
+
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
